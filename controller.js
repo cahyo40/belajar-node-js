@@ -16,3 +16,18 @@ exports.posts = function (req, res) {
     }
   });
 };
+
+exports.postsdetail = function (req, res) {
+  let id = req.params.id;
+  koneksi.query(
+    "select*from posts where id=?",
+    [id],
+    function (err, rows, fields) {
+      if (err) {
+        koneksi.log(err);
+      } else {
+        response.ok(rows, res);
+      }
+    }
+  );
+};
