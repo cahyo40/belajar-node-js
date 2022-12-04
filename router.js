@@ -5,5 +5,8 @@ module.exports = function (app) {
 
   app.route("/").get(myjson.index);
   app.route("/posts").get(myjson.posts);
-  app.route("/posts/:id").get(myjson.postsdetail);
+  app.route("/posts").post(myjson.postsCreate);
+  app.route("/posts/:id").get(myjson.postsDetail);
+  app.route("/posts/:id").put(myjson.postsUpdate);
+  app.route("/posts/:id").delete(myjson.postDelete);
 };
